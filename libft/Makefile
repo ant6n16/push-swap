@@ -6,7 +6,7 @@
 #    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 12:03:23 by antdelga          #+#    #+#              #
-#    Updated: 2023/02/08 19:41:29 by antdelga         ###   ########.fr        #
+#    Updated: 2023/02/09 19:43:07 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS	=	ft_isalpha.c \
 			ft_strnstr.c \
 			ft_strlcat.c \
 			ft_atoi.c \
+			ft_atoi_long.c \
 			ft_calloc.c \
 			ft_strdup.c \
 			ft_substr.c \

@@ -6,7 +6,7 @@
 #    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/02/08 20:17:16 by antdelga         ###   ########.fr        #
+#    Updated: 2023/02/13 18:08:24 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME	=	push_swap.a
 LIBFT_R = ./libft
 LIBFT = ${LIBFT_R}/libft.a
 
-SRCS	=	main.c \
+SRCS	=	input_and_stacks.c \
+			main.c \
 
 OBJS	=	${SRCS:.c=.o}
 
