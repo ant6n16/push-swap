@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_and_stacks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:03:53 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/13 19:14:15 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/14 01:28:01 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,6 @@ int	process_input(int argc, char **argv, int *stack_a)
 	return (1);
 }
 
-int	check_repeated_stack_a(int *stack_a, int size)
-{
-	int	temp;
-	int	index;
-	int	index2;
-
-	index = -1;
-	while (++index < (size - 1))
-	{
-		temp = stack_a[index];
-		index2 = index;
-		while (++index2 < size)
-		{
-			if (temp == stack_a[index2])
-				return (0);
-		}
-	}
-	return (1);
-}
-
-void	plot_stack(int *stack, int size)
-{
-	int	index;
-
-	index = 0;
-	while (index < size)
-		ft_printf("%d\n", stack[index++]);
-}
-
 int	*create_stack_b_filled(int size)
 {
 	int	*stack_b;
@@ -73,7 +44,18 @@ int	*create_stack_b_filled(int size)
 	return (stack_b);
 }
 
-int	*value_to_index(int *stack_a, int size, int min_aux)
+int	*swap_table(int *stack_a, int *aux, int size)
+{
+	int	index;
+
+	index = -1;
+	while (++index < size)
+		stack_a[index] = aux[index];
+	free(aux);
+	return (stack_a);
+}
+
+int	*value_to_index(int *stack_a, int size, long max_aux, long min_aux)
 {
 	int	index;
 	int	index2;
@@ -88,14 +70,16 @@ int	*value_to_index(int *stack_a, int size, int min_aux)
 	{
 		while (++index < size)
 		{
-			if (stack_a[index] < min_aux)
+			if (stack_a[index] < max_aux && stack_a[index] > min_aux)
 			{
 				aux[index] = index2;
-				min_aux = aux[index];
+				max_aux = stack_a[index];
 			}
 		}
+		min_aux = max_aux;
+		max_aux = 2147483648;
 		index = -1;
 	}
+	stack_a = swap_table(stack_a, aux, size);
 	return (create_stack_b_filled(size));
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/13 19:19:59 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/14 01:32:26 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main(int argc, char **argv)
 		return (free(stack_a), 0);
 	if (check_repeated_stack_a(stack_a, (argc - 1)) == 0)
 		return (free(stack_a), 0);
-	plot_stack(stack_a, (argc - 1));
-	stack_b = value_to_index(stack_a, (argc - 1));
+	stack_b = value_to_index(stack_a, (argc - 1), 2147483648, -2147483649);
 	if (!stack_b)
-		return (0);
+		return (free(stack_a), 0);
+	plot_both_stacks(stack_a, stack_b, (argc - 1));
 	return (0);
 }
