@@ -6,11 +6,11 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:03:53 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/14 01:28:01 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/14 01:38:52 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	process_input(int argc, char **argv, int *stack_a)
 {

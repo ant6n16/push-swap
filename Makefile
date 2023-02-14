@@ -6,18 +6,18 @@
 #    By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/02/14 01:28:30 by antdelga         ###   ########.fr        #
+#    Updated: 2023/02/14 01:41:21 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap.a
+NAME	=	./src/push_swap.a
 
 LIBFT_R = ./libft
 LIBFT = ${LIBFT_R}/libft.a
 
-SRCS	=	input_and_stacks.c \
-			stacks_utils.c \
-			main.c \
+SRCS	=	./src/input_and_stacks.c \
+			./src/stacks_utils.c \
+			./src/main.c \
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -34,7 +34,7 @@ ${LIBFT}:	${LIBFT_R}/*.c
 ${NAME}:	${OBJS}
 	cp ${LIBFT} ${NAME}
 	ar crs ${NAME} ${OBJS}
-	${CC} ${CFLAGS} push_swap.a main.c -o push_swap
+	${CC} ${CFLAGS} ./src/push_swap.a ./src/main.c -o push_swap
 
 clean:
 	make clean -C ${LIBFT_R}
@@ -42,6 +42,7 @@ clean:
 
 fclean:	clean
 	rm -f ${NAME}
+	rm -f push_swap
 	make fclean -C ${LIBFT_R}
 
 re:	fclean all
