@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 01:27:22 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/14 01:39:04 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/17 21:21:13 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,32 @@ void	plot_stack(int *stack, int size)
 void	plot_both_stacks(int *stack_a, int *stack_b, int size)
 {
 	int	index;
+	int	aux_a;
+	int	aux_b;
 
 	index = -1;
 	ft_printf("\nStack_A     Stack_B\n");
 	ft_printf(" ----------------- \n");
 	while (++index < size)
-		ft_printf("   %d          %d\n", stack_a[index], stack_b[index]);
+	{
+		aux_a = stack_a[index];
+		aux_b = stack_b[index];
+		if (aux_a == -1 && aux_b != -1)
+			ft_printf("              %d\n", stack_b[index]);
+		else if (aux_a != -1 && aux_b == -1)
+			ft_printf("   %d           \n", stack_a[index]);
+		else if (aux_a != -1 && aux_b != -1)
+			ft_printf("   %d          %d\n", stack_a[index], stack_b[index]);
+	}	
 	ft_printf(" ----------------- \n\n");
+}
+
+int	len_stack(int *stack)
+{
+	int	index;
+
+	index = 0;
+	while (stack[index] != -1)
+		index++;
+	return (index);
 }

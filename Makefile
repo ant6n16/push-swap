@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+         #
+#    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/02/14 01:41:21 by antdelga         ###   ########.fr        #
+#    Updated: 2023/02/17 20:58:18 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LIBFT = ${LIBFT_R}/libft.a
 SRCS	=	./src/input_and_stacks.c \
 			./src/stacks_utils.c \
 			./src/main.c \
+			./src/instructions.c \
 
 OBJS	=	${SRCS:.c=.o}
 

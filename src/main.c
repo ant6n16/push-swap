@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/14 01:39:01 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/17 21:29:59 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,17 @@ int	main(int argc, char **argv)
 	if (!stack_b)
 		return (free(stack_a), 0);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
+
+	// PROBANDO LAS INSTRUCCIONES!!!!!
+
+	sa(stack_a, len_stack(stack_a));
+	plot_both_stacks(stack_a, stack_b, (argc - 1));
+
+	stack_b[0] = 5;
+	stack_b[1] = 6;
+	stack_b[2] = 7;
+	plot_both_stacks(stack_a, stack_b, (argc - 1));
+
+	sa(stack_a, len_stack(stack_b));
 	return (0);
 }
