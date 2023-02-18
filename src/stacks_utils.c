@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 01:27:22 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/17 21:21:13 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/18 19:31:58 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void	plot_both_stacks(int *stack_a, int *stack_b, int size)
 	ft_printf(" ----------------- \n\n");
 }
 
-int	len_stack(int *stack)
+int	len_stack(int *stack, int limit)
 {
 	int	index;
 
 	index = 0;
-	while (stack[index] != -1)
+	while (stack[index] != -1 && index < limit)
 		index++;
 	return (index);
 }
