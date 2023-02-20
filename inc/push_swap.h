@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/18 20:40:38 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:32:46 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,11 @@ void	sb(int *stack_b, int len);
 void	ss(int *stack_a, int *stack_b, int lenA, int lenB);
 void	pa(int *stack_a, int *stack_b, int lenA, int lenB);
 void	pb(int *stack_a, int *stack_b, int lenA, int lenB);
+void	ra(int *stack_a, int len);
+void	rb(int *stack_b, int len);
+void	rr(int *stack_a, int *stack_b, int lenA, int lenB);
+void	rra(int *stack_a, int len);
+void	rrb(int *stack_b, int len);
+void	rrr(int *stack_a, int *stack_b, int lenA, int lenB);
 
 #endif
