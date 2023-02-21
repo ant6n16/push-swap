@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 20:58:04 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/20 21:41:57 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:41:04 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,28 @@ void	sb(int *stack_b, int len)
 	sa(stack_b, len);
 }
 
-void	ss(int *stack_a, int *stack_b, int lenA, int lenB)
+void	ss(int *stack_a, int *stack_b, int len_a, int len_b)
 {
-	sa(stack_a, lenA);
-	sb(stack_b, lenB);
+	if (len_a < 2 || len_b < 2)
+		return ;
+	sa(stack_a, len_a);
+	sb(stack_b, len_b);
 }
 
-void	pb(int *stack_a, int *stack_b, int lenA, int lenB)
+void	pb(int *stack_a, int *stack_b, int len_a, int len_b)
 {
 	int	index;
 	
-	if (lenA == 0)
+	if (len_a == 0)
 		return ;
-	while (lenB > 0)
+	while (len_b > 0)
 	{
-		stack_b[lenB] = stack_b[lenB - 1];
-		lenB--;
+		stack_b[len_b] = stack_b[len_b - 1];
+		len_b--;
 	}
 	stack_b[0] = stack_a[0];
 	index = 0;
-	while (index < (lenA - 1))
+	while (index < (len_a - 1))
 	{
 		stack_a[index] = stack_a[index + 1];
 		index++;
@@ -55,68 +57,7 @@ void	pb(int *stack_a, int *stack_b, int lenA, int lenB)
 	stack_a[index] = -1;
 }
 
-void	pa(int *stack_a, int *stack_b, int lenA, int lenB)
+void	pa(int *stack_a, int *stack_b, int len_a, int len_b)
 {
-	pb(stack_b, stack_a, lenB, lenA);
-}
-
-void	ra(int *stack_a, int len)
-{
-	int	aux1;
-	int	aux2;
-	int	ini;
-	int tam;
-
-	tam = --len;
-	ini = stack_a[0];
-	aux1 = stack_a[len];
-	while(--len >= 0)
-	{
-		aux2 = stack_a[len];
-		stack_a[len] = aux1;
-		aux1 = aux2;
-	}
-	stack_a[tam] = ini;
-}
-
-void	rb(int *stack_b, int len)
-{
-	ra(stack_b, len);
-}
-
-void	rr(int *stack_a, int *stack_b, int lenA, int lenB)
-{
-	ra(stack_a, lenA);
-	rb(stack_b, lenB);
-}
-
-void	rra(int *stack_a, int len)
-{
-	int	aux1;
-	int	aux2;
-	int	ini;
-	int	index;
-
-	ini = stack_a[--len];
-	aux1 = stack_a[0];
-	index = 1;
-	while(index < len)
-	{
-		aux2 = stack_a[index + 1];
-		stack_a[index + 1] = aux1;
-		aux1 = aux2;
-		index++;
-	}
-	stack_a[0] = ini;
-}
-
-void	rrb(int *stack_b, int len)
-{
-	rra(stack_b, len);
-}
-
-void	rrr(int *stack_a, int *stack_b, int lenA, int lenB)
-{
-	rra(stack_a, lenA);
-	rrb(stack_b, lenB);
+	pb(stack_b, stack_a, len_b, len_a);
 }
