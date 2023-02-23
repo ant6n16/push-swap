@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 01:27:22 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/21 20:38:03 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/23 21:40:06 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ void	test_instructions(int *stack_a, int *stack_b, int argc)
 	
 	/* Probamos a pasar el primero de A a B dos veces */
 	ft_printf("Probamos pasar el primero de A a B dos veces:\n");
-	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_a, (argc - 1)));
+	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_b, (argc - 1)));
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
-	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_a, (argc - 1)));
+	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_b, (argc - 1)));
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 
 	/* Probamos SB e imprimimos ambas stacks*/

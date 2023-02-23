@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/21 20:37:20 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/23 21:33:32 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,14 @@ void	rra(int *stack_a, int len);
 void	rrb(int *stack_b, int len);
 void	rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 void	test_instructions(int *stack_a, int *stack_b, int argc);
+
+/* BITS */
+char	*print_bits(int octet, int num_bits);
+int		num_bits(int limit);
+void	print_stacks_by_bits(int *stack_a, int *stack_b, int size, int n_bits);
+
+/* GAME */
+void	ft_game(int *stack_a, int *stack_b, int bits, int argc);
+void	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc);
 
 #endif

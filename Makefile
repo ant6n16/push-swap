@@ -6,7 +6,7 @@
 #    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/02/21 20:41:24 by antdelga         ###   ########.fr        #
+#    Updated: 2023/02/23 21:35:01 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS	=	./src/input_and_stacks.c \
 			./src/instructions.c \
 			./src/instructions_rot_a.c \
 			./src/instructions_rot_b.c \
+			./src/bits_utils.c \
+			./src/game.c \
 
 OBJS	=	${SRCS:.c=.o}
 
