@@ -3,28 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:58:41 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 01:57:18 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:50:48 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ft_game(int *stack_a, int *stack_b, int bits, int argc)
+void	ft_game(int *stack_a, int *stack_b, int bits, int argc)
 {
 	int	i_bit;
-	int	inst;
 
-	inst = 0;
 	i_bit = -1;
 	while (++i_bit < bits)
 	{
-		inst += work_in_a(stack_a, stack_b, i_bit, argc);
-		inst += return_to_a(stack_a, stack_b, argc);
+		work_in_a(stack_a, stack_b, i_bit, argc);
+		return_to_a(stack_a, stack_b, argc);
 	}
-	return (inst);
 }
 
 int	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc)

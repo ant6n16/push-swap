@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+         #
+#    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/02/24 01:47:03 by antdelga         ###   ########.fr        #
+#    Updated: 2023/02/24 19:14:31 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_and_stacks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:03:53 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/14 01:38:52 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:41:34 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,31 @@ int	process_input(int argc, char **argv, int *stack_a)
 	int			index;
 	long int	aux;
 
-	if (argc < 2)
-		return (0);
 	index = 0;
 	while (++index < argc)
 	{
+		if (check_numeric_string(argv[index]) == 0)
+			return (0);
 		aux = ft_atoi_long(argv[index]);
 		if ((aux > 2147483647) || (aux < -2147483648))
 			return (0);
 		stack_a[index - 1] = ft_atoi(argv[index]);
+	}
+	return (1);
+}
+
+int	check_numeric_string(char *str)
+{
+	int	index;
+
+	index = 0;
+	if (str[index] == '-')
+		index++;
+	while(str[index] != '\0')
+	{
+		if (str[index] < '0' || str[index] > '9')
+			return (0);
+		index++;
 	}
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plot_bits_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 01:46:05 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 01:46:51 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:05:21 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,26 +88,3 @@ void	print_stacks_by_bits(int *stack_a, int *stack_b, int size, int n_bits)
 	}	
 	ft_printf(" ----------------- \n\n");
 }
-
-// void	print_stacks_by_bits(int *stack_a, int *stack_b, int size, int n_bits)
-// {
-// 	int	index;
-// 	int	aux_a;
-// 	int	aux_b;
-
-// 	index = -1;
-// 	ft_printf("\nStack_A     Stack_B\n");
-// 	ft_printf(" ----------------- \n");
-// 	while (++index < size)
-// 	{
-// 		aux_a = stack_a[index];
-// 		aux_b = stack_b[index];
-// 		if (aux_a == -1 && aux_b != -1)
-// 			ft_printf("              %s\n", print_bits(stack_b[index], n_bits));
-// 		else if (aux_a != -1 && aux_b == -1)
-// 			ft_printf("   %s           \n", print_bits(stack_a[index], n_bits));
-// 		else if (aux_a != -1 && aux_b != -1)
-// 			ft_printf("   %s          %s\n", print_bits(stack_a[index], n_bits), print_bits(stack_b[index], n_bits));
-// 	}	
-// 	ft_printf(" ----------------- \n\n");
-// }
