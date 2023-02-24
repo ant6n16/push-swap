@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 21:23:13 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:57:21 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/libft.h"
-
-typedef struct g_arrays
-{
-	int	*stack_a;
-	int	*stack_b;
-	int	len_a;
-	int	len_b;
-}					l_arrays;
 
 /* PROCESS INPUT*/
 int		process_input(int argc, char **argv, int *stack_a);
@@ -63,8 +55,13 @@ void	print_bits_single(int octet, int num_bits);
 
 
 /* GAME */
+void	ft_game_basic(int *stack_a, int *stack_b, int bits, int argc);
 void	ft_game(int *stack_a, int *stack_b, int bits, int argc);
 int     work_in_a(int *stack_a, int *stack_b, int in_bit, int argc);
 int     return_to_a(int *stack_a, int *stack_b, int argc);
+
+/* GAME IMPROVEMENTS */
+int	game_completed(int *stack, int len);
+
 
 #endif

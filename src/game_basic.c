@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   game_basic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:58:41 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 18:50:48 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:55:07 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	ft_game_basic(int *stack_a, int *stack_b, int bits, int argc)
+{
+	int	i_bit;
+
+	i_bit = -1;
+	while (++i_bit < bits)
+	{
+		if (game_completed(stack_a, len_stack(stack_a, (argc - 1))) == 1)
+			break ;
+		work_in_a(stack_a, stack_b, i_bit, argc);
+		return_to_a(stack_a, stack_b, argc);
+	}
+}
 
 void	ft_game(int *stack_a, int *stack_b, int bits, int argc)
 {
@@ -19,6 +33,8 @@ void	ft_game(int *stack_a, int *stack_b, int bits, int argc)
 	i_bit = -1;
 	while (++i_bit < bits)
 	{
+		if (game_completed(stack_a, len_stack(stack_a, (argc - 1))) == 1)
+			break ;
 		work_in_a(stack_a, stack_b, i_bit, argc);
 		return_to_a(stack_a, stack_b, argc);
 	}
@@ -41,21 +57,15 @@ int	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc)
 	{
 		if ((stack_a[0] >> in_bit & 1) == 0)
 		{
-			//ft_printf("Ejecuto pb sobre el numero: %d\n", stack_a[0]);
 			pb(stack_a, stack_b, len_a, len_b);
 			ft_printf("pb\n");
 			cont++;
-			//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
-			//plot_both_stacks(stack_a, stack_b, (argc - 1));
 		}
 		else
 		{
-			//ft_printf("Ejecuto ra sobre el numero: %d\n", stack_a[0]);
 			ra(stack_a, len_a);
 			ft_printf("ra\n");
 			cont++;
-			//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
-			//plot_both_stacks(stack_a, stack_b, (argc - 1));
 		}
 		len_a = len_stack(stack_a, (argc - 1));
 		len_b = len_stack(stack_b, (argc - 1));
@@ -78,11 +88,9 @@ int	return_to_a(int *stack_a, int *stack_b, int argc)
 	cont = 0;
 	while (++index < size_orig)
 	{
-		//ft_printf("Ejecuto pa sobre el numero: %d\n", stack_b[0]);
 		pa(stack_a, stack_b, len_a, len_b);
 		ft_printf("pa\n");
 		cont++;
-		//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);			
 		len_a = len_stack(stack_a, (argc - 1));
 		len_b = len_stack(stack_b, (argc - 1));
 	}

@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 21:18:22 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:54:47 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,21 @@ int	main(int argc, char **argv)
 	if (!stack_b)
 		return (free(stack_a), 0);
 	bits = num_bits(len_stack(stack_a, argc - 1) - 1);
-	ft_game(stack_a, stack_b, bits, argc);
-	plot_both_stacks(stack_a, stack_b, (argc - 1));
-	atexit(ft_leaks);
+	if (len_stack(stack_a, argc - 1) <= 5)
+		ft_game_basic(stack_a, stack_b, bits, argc);
+	else
+		ft_game(stack_a, stack_b, bits, argc);
+	// // plot_both_stacks(stack_a, stack_b, (argc - 1));
+	// atexit(ft_leaks);
 	return (free(stack_a), free(stack_b), 0);
 }
 
 /* 
 	TO DO:
 	0.- REVISAR LA ENTRADA CUANDO ES TIPO "1 3 2 4 5" Y CON EL CHECKER
-	1.- IR COMPROBANDO SI EL STACK YA ESTÁ ORDENADO PARA PARAR A TIEMPO
 	2.- METER STACKS Y TAMAÑOS EN UN STRUCT PARA TENER MENOS PARAMETROS EN FUNCIONES
 	3.- OPTIMIZAR USANDO EL RESTO DE INSTRUCCIONES
-	4.- LIBERAR LA MEMORIA Y MIRAR QUE NO HAYA MEMORY LEAKS
+	4.- HACER LA FUNCIÓN PARA QUE ORDENE CUANDO SON <= A 5 NUMEROS
 */
 
 /*
