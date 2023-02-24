@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 14:00:41 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:27:25 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(int argc, char **argv)
 	1.- IR COMPROBANDO SI EL STACK YA ESTÁ ORDENADO PARA PARAR A TIEMPO
 	2.- METER STACKS Y TAMAÑOS EN UN STRUCT PARA TENER MENOS PARAMETROS EN FUNCIONES
 	3.- OPTIMIZAR USANDO EL RESTO DE INSTRUCCIONES
+	4.- LIBERAR LA MEMORIA Y MIRAR QUE NO HAYA MEMORY LEAKS
 */
 
 /* Testeamos que las instrucciones funcionen bien
