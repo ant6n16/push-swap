@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 01:55:35 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:31:27 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	print_stacks_by_bits(int *stack_a, int *stack_b, int size, int n_bits);
 void	print_single_last(int *array, int len);
 void	print_single_one(int *array, int len);
 void	print_both(int *array1, int *array2, int len);
+void       print_bits_single(int octet, int num_bits);
+
 
 /* GAME */
 int     ft_game(int *stack_a, int *stack_b, int bits, int argc);

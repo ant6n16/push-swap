@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 02:06:56 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:00:41 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,29 @@ int	main(int argc, char **argv)
 		return (free(stack_a), 0);
 		
 	/* Hay que sacar el numero de bits necesario */
-	ft_printf("%d\n", len_stack(stack_a, argc - 1));
 	bits = num_bits(len_stack(stack_a, argc - 1) - 1);
 	ft_printf("Num bits: %d\n", bits);
-	/* Ploteamos el stack en numero y en bits */
-	plot_both_stacks(stack_a, stack_b, (argc - 1));
-	//print_stacks_by_bits(stack_a, stack_b, argc - 1, bits);
 	
-	// /* Play y representamos el resultado final y el numero de instrucciones */
-	// ft_printf("\nNumero de instrucciones %d\n", ft_game(stack_a, stack_b, bits, argc));
-	// plot_both_stacks(stack_a, stack_b, (argc - 1));
+	// ft_printf("\nNumero mayor en binario: ");
+	// print_bits_single((len_stack(stack_a, argc - 1) - 1), bits);
+	
+	// /* Ploteamos el stack en numero y en bits */
+	plot_both_stacks(stack_a, stack_b, (argc - 1));
+	// //print_stacks_by_bits(stack_a, stack_b, argc - 1, bits);
+	
+	// // /* Play y representamos el resultado final y el numero de instrucciones */
+	ft_printf("\nNumero de instrucciones %d\n", ft_game(stack_a, stack_b, bits, argc));
+	plot_both_stacks(stack_a, stack_b, (argc - 1));
 	return (0);
 }
 
+/* 
+	TO DO:
+	1.- IR COMPROBANDO SI EL STACK YA ESTÁ ORDENADO PARA PARAR A TIEMPO
+	2.- METER STACKS Y TAMAÑOS EN UN STRUCT PARA TENER MENOS PARAMETROS EN FUNCIONES
+	3.- OPTIMIZAR USANDO EL RESTO DE INSTRUCCIONES
+*/
+
 /* Testeamos que las instrucciones funcionen bien
-	test_instructions(stack_a, stack_b, argc); */
+	test_instructions(stack_a, stack_b, argc); 
+*/

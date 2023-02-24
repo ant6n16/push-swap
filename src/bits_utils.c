@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:25:55 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 01:46:39 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:00:20 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	*print_bits(int octet, int num_bits) /* ESTA NO SE ENTREGA */
 {
-	unsigned char 	bit;
-	int				*array;
-	int				len;
+	int 	bit;
+	int		*array;
+	int		len;
 
 	array = (int *) ft_calloc(sizeof(int), num_bits);
 
@@ -29,6 +29,18 @@ int	*print_bits(int octet, int num_bits) /* ESTA NO SE ENTREGA */
 	return (array);
 }
 
+void print_bits_single(int octet, int num_bits)
+{
+	int	bit;
+
+	while (num_bits--)
+	{
+		bit = (octet >> num_bits & 1) + '0';
+		write(1, &bit, 1);
+	}
+	write(1, "\n", 1);
+}
+
 int	num_bits(int limit)
 {
 	int	index;
@@ -36,7 +48,7 @@ int	num_bits(int limit)
 
 	index = 0;
 	count = 0;
-	while (index < limit)
+	while (index < 32) /* Un entero tiene, como mucho, 32 bits */
 	{
 		if ((limit >> index & 1) == 1)
 			count = index + 1;
