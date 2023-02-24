@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/23 21:33:32 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/24 01:55:35 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,16 @@ void	rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 void	test_instructions(int *stack_a, int *stack_b, int argc);
 
 /* BITS */
-char	*print_bits(int octet, int num_bits);
+int	    *print_bits(int octet, int num_bits);
 int		num_bits(int limit);
 void	print_stacks_by_bits(int *stack_a, int *stack_b, int size, int n_bits);
+void	print_single_last(int *array, int len);
+void	print_single_one(int *array, int len);
+void	print_both(int *array1, int *array2, int len);
 
 /* GAME */
-void	ft_game(int *stack_a, int *stack_b, int bits, int argc);
-void	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc);
+int     ft_game(int *stack_a, int *stack_b, int bits, int argc);
+int     work_in_a(int *stack_a, int *stack_b, int in_bit, int argc);
+int     return_to_a(int *stack_a, int *stack_b, int argc);
 
 #endif

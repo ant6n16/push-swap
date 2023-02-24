@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
+#    By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/02/23 21:35:01 by antdelga         ###   ########.fr        #
+#    Updated: 2023/02/24 01:47:03 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	./src/input_and_stacks.c \
 			./src/instructions_rot_b.c \
 			./src/bits_utils.c \
 			./src/game.c \
+			./src/plot_bits_utils.c \
 
 OBJS	=	${SRCS:.c=.o}
 
