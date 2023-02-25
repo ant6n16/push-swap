@@ -3,26 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   game_basic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:58:41 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 21:55:07 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:32:05 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_game_basic(int *stack_a, int *stack_b, int bits, int argc)
+void	ft_game_basic(int *stack_a, int argc)
 {
-	int	i_bit;
+	int	len_a;
 
-	i_bit = -1;
-	while (++i_bit < bits)
+	len_a = len_stack(stack_a, (argc - 1));
+	if (game_completed(stack_a, len_a) == 1)
+			return ;
+	if (stack_a[0] == 0)
 	{
-		if (game_completed(stack_a, len_stack(stack_a, (argc - 1))) == 1)
-			break ;
-		work_in_a(stack_a, stack_b, i_bit, argc);
-		return_to_a(stack_a, stack_b, argc);
+		ra(stack_a, len_a);
+		ft_printf("ra\n");
+		sa(stack_a, len_a);
+		ft_printf("sa\n");
+		return ;
+	}
+	if (stack_a[0] == 1 && stack_a[2] == 0)
+	{
+		ra(stack_a, len_a);
+		ft_printf("ra\n");
+		return ;
+	}
+	if (stack_a[0] == 1 && stack_a[2] == 2)
+	{
+		sa(stack_a, len_a);
+		ft_printf("sa\n");
+		return ;
+	}
+	if (stack_a[0] == 2 && stack_a[2] == 0)
+	{
+		sa(stack_a, len_a);
+		ft_printf("sa\n");
+		ra(stack_a, len_a);
+		ft_printf("sa\n");
+		return ;
+	}
+	if (stack_a[0] == 2 && stack_a[2] == 1)
+	{
+		ra(stack_a, len_a);
+		ft_printf("ra\n");
+		ra(stack_a, len_a);
+		ft_printf("sa\n");
+		return ;
 	}
 }
 
@@ -34,7 +65,7 @@ void	ft_game(int *stack_a, int *stack_b, int bits, int argc)
 	while (++i_bit < bits)
 	{
 		if (game_completed(stack_a, len_stack(stack_a, (argc - 1))) == 1)
-			break ;
+			return ;
 		work_in_a(stack_a, stack_b, i_bit, argc);
 		return_to_a(stack_a, stack_b, argc);
 	}

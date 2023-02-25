@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 20:58:04 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/23 21:00:24 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:23:16 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

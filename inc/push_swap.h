@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 21:57:21 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/25 01:25:55 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	print_bits_single(int octet, int num_bits);
 
 
 /* GAME */
-void	ft_game_basic(int *stack_a, int *stack_b, int bits, int argc);
+void	ft_game_basic(int *stack_a, int argc);
 void	ft_game(int *stack_a, int *stack_b, int bits, int argc);
 int     work_in_a(int *stack_a, int *stack_b, int in_bit, int argc);
 int     return_to_a(int *stack_a, int *stack_b, int argc);
