@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/25 01:31:36 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 01:24:53 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	int	*stack_a;
 	int	*stack_b;
 	int	bits;
-
+	int	verbose = 1; // QUITAR
 	if (argc < 2)
 		return (0);
 	stack_a = (int *) ft_calloc(sizeof(int), (argc - 1));
@@ -36,21 +36,21 @@ int	main(int argc, char **argv)
 	if (!stack_b)
 		return (free(stack_a), 0);
 	bits = num_bits(len_stack(stack_a, argc - 1) - 1);
-	plot_both_stacks(stack_a, stack_b, (argc - 1));
+	if (verbose) // REPRESENTAR - QUITAR
+		plot_both_stacks(stack_a, stack_b, (argc - 1));
 	if (len_stack(stack_a, argc - 1) <= 5)
-		ft_game_basic(stack_a, argc);
-		//ft_game(stack_a, stack_b, bits, argc);
+		ft_game_basic(stack_a, stack_b, argc);
 	else
 		ft_game(stack_a, stack_b, bits, argc);
-	plot_both_stacks(stack_a, stack_b, (argc - 1));
-	atexit(ft_leaks);
+	if (verbose) // QUITAR
+		plot_both_stacks(stack_a, stack_b, (argc - 1));
+	//atexit(ft_leaks); // LEAKS DE MEMORIA - QUITAR
 	return (free(stack_a), free(stack_b), 0);
 }
 
 /* 
 	TO DO:
 	0.- REVISAR LA ENTRADA CUANDO ES TIPO "1 3 2 4 5" Y CON EL CHECKER
-	1.- METER LOS FTPRINTF DE LAS INSTRUCCIONES EN SUS FUNCIONES
 	2.- METER STACKS Y TAMAÑOS EN UN STRUCT PARA TENER MENOS PARAMETROS EN FUNCIONES
 	3.- OPTIMIZAR USANDO EL RESTO DE INSTRUCCIONES
 	4.- HACER LA FUNCIÓN PARA QUE ORDENE CUANDO SON <= A 5 NUMEROS

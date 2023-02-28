@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 01:27:22 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/23 21:40:06 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 00:43:18 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,19 @@ void	test_instructions(int *stack_a, int *stack_b, int argc)
 
 	/* Probamos SA e imprimimos ambas stacks */
 	ft_printf("Probamos Swap los dos primeros de A:\n");
-	sa(stack_a, len_stack(stack_a, (argc - 1)));
+	sa(stack_a, len_stack(stack_a, (argc - 1)), 1);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 	
 	/* Probamos a pasar el primero de A a B dos veces */
 	ft_printf("Probamos pasar el primero de A a B dos veces:\n");
-	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_b, (argc - 1)));
+	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_b, (argc - 1)), 1);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
-	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_b, (argc - 1)));
+	pb(stack_a, stack_b, len_stack(stack_a, (argc - 1)), len_stack(stack_b, (argc - 1)), 1);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 
 	/* Probamos SB e imprimimos ambas stacks*/
 	ft_printf("Probamos Swap los dos primeros de B:\n");
-	sb(stack_b, len_stack(stack_b, (argc - 1)));
+	sb(stack_b, len_stack(stack_b, (argc - 1)), 1);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 
 	/* Probamos swap de ambos stacks e imprimimos ambas stacks*/
@@ -104,12 +104,12 @@ void	test_instructions(int *stack_a, int *stack_b, int argc)
 
 	/* Probamos a rotar en A */
 	ft_printf("Probamos rotar en A:\n");
-	ra(stack_a, len_stack(stack_a, (argc - 1)));
+	ra(stack_a, len_stack(stack_a, (argc - 1)), 1);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 
 	/* Probamos a rotar en B */
 	ft_printf("Probamos rotar en B:\n");
-	rb(stack_b, len_stack(stack_b, (argc - 1)));
+	rb(stack_b, len_stack(stack_b, (argc - 1)), 1);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 
 	/* Probamos a rotar en A y B */
@@ -126,6 +126,6 @@ void	test_instructions(int *stack_a, int *stack_b, int argc)
 
 	/* Probamos a rotar reverso en A*/
 	ft_printf("Probamos rotar reverso en A:\n");
-	rra(stack_a, len_stack(stack_a, (argc - 1)));
+	rra(stack_a, len_stack(stack_a, (argc - 1)), 1);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 }

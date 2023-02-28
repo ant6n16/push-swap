@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_rot_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 20:38:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/21 20:40:54 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 00:32:32 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ra(int *stack_a, int len)
+void	ra(int *stack_a, int len, int verbose)
 {
 	int	aux1;
 	int	aux2;
@@ -31,17 +31,20 @@ void	ra(int *stack_a, int len)
 		aux1 = aux2;
 	}
 	stack_a[tam] = ini;
+	if (verbose == 1)
+		ft_printf("ra\n");
 }
 
 void	rr(int *stack_a, int *stack_b, int len_a, int len_b)
 {
 	if (len_a < 2 || len_b < 2)
 		return ;
-	ra(stack_a, len_a);
-	rb(stack_b, len_b);
+	ra(stack_a, len_a, 0);
+	rb(stack_b, len_b, 0);
+	ft_printf("rr\n");
 }
 
-void	rra(int *stack_a, int len)
+void	rra(int *stack_a, int len, int verbose)
 {
 	int	aux1;
 	int	aux2;
@@ -61,4 +64,6 @@ void	rra(int *stack_a, int len)
 		index++;
 	}
 	stack_a[0] = ini;
+	if (verbose == 1)
+		ft_printf("rra\n");
 }
