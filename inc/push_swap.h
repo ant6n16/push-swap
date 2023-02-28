@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/28 01:24:14 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:57:05 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,16 @@ void	print_bits_single(int octet, int num_bits);
 
 /* GAME */
 void	ft_game_basic(int *stack_a, int *stack_b, int argc);
-void	ft_sort_3(int *stack_a, int argc);
-void	ft_sort_4(int *stack_a, int *stack_b, int argc);
-void	ft_sort_5(int *stack_a, int *stack_b, int argc);
+int     get_min(int *stack_a, int argc, int aux);
+void	ft_sort_3(int *stack_a, int len_a, int aux_min);
+void	ft_sort_4(int *stack_a, int *stack_b, int argc, int aux_min);
+void	ft_sort_5(int *stack_a, int *stack_b, int argc, int aux_min);
 void	ft_game(int *stack_a, int *stack_b, int bits, int argc);
 int     work_in_a(int *stack_a, int *stack_b, int in_bit, int argc);
 int     return_to_a(int *stack_a, int *stack_b, int argc);
 
 /* GAME IMPROVEMENTS */
-int	game_completed(int *stack, int len);
+int	game_completed(int *stack, int len, int offset);
 
 
 #endif
