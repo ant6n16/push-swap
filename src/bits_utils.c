@@ -6,20 +6,19 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:25:55 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 14:00:20 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:17:13 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	*print_bits(int octet, int num_bits) /* ESTA NO SE ENTREGA */
+int	*print_bits(int octet, int num_bits)
 {
-	int 	bit;
-	int		*array;
-	int		len;
+	int	bit;
+	int	*array;
+	int	len;
 
 	array = (int *) ft_calloc(sizeof(int), num_bits);
-
 	len = num_bits - 1;
 	while (num_bits--)
 	{
@@ -29,7 +28,7 @@ int	*print_bits(int octet, int num_bits) /* ESTA NO SE ENTREGA */
 	return (array);
 }
 
-void print_bits_single(int octet, int num_bits)
+void	print_bits_single(int octet, int num_bits)
 {
 	int	bit;
 
@@ -48,7 +47,7 @@ int	num_bits(int limit)
 
 	index = 0;
 	count = 0;
-	while (index < 32) /* Un entero tiene, como mucho, 32 bits */
+	while (index < 32)
 	{
 		if ((limit >> index & 1) == 1)
 			count = index + 1;

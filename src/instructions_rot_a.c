@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 20:38:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/28 00:32:32 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:19:07 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	ra(int *stack_a, int len, int verbose)
 	int	aux1;
 	int	aux2;
 	int	ini;
-	int tam;
+	int	tam;
 
 	if (len < 2)
 		return ;
 	tam = --len;
 	ini = stack_a[0];
 	aux1 = stack_a[len];
-	while(--len >= 0)
+	while (--len >= 0)
 	{
 		aux2 = stack_a[len];
 		stack_a[len] = aux1;
@@ -56,7 +56,7 @@ void	rra(int *stack_a, int len, int verbose)
 	ini = stack_a[--len];
 	aux1 = stack_a[0];
 	index = 1;
-	while(index <= len)
+	while (index <= len)
 	{
 		aux2 = stack_a[index];
 		stack_a[index] = aux1;

@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 20:58:04 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/28 00:34:31 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:27:15 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,14 @@ void	ss(int *stack_a, int *stack_b, int len_a, int len_b)
 	ft_printf("ss\n");
 }
 
-void	pb(int *stack_a, int *stack_b, int len_a, int len_b, int verbose)
+void	pb(int *stack_a, int *stack_b, int argc, int verbose)
 {
 	int	index;
-	
+	int	len_a;
+	int	len_b;
+
+	len_a = len_stack(stack_a, argc - 1);
+	len_b = len_stack(stack_b, argc - 1);
 	if (len_a == 0)
 		return ;
 	while (len_b > 0)
@@ -64,8 +68,8 @@ void	pb(int *stack_a, int *stack_b, int len_a, int len_b, int verbose)
 		ft_printf("pb\n");
 }
 
-void	pa(int *stack_a, int *stack_b, int len_a, int len_b)
+void	pa(int *stack_a, int *stack_b, int argc)
 {
-	pb(stack_b, stack_a, len_b, len_a, 0);
+	pb(stack_b, stack_a, argc, 0);
 	ft_printf("pa\n");
 }

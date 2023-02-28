@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_and_stacks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:03:53 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/24 20:41:34 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:18:52 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_numeric_string(char *str)
 	index = 0;
 	if (str[index] == '-')
 		index++;
-	while(str[index] != '\0')
+	while (str[index] != '\0')
 	{
 		if (str[index] < '0' || str[index] > '9')
 			return (0);

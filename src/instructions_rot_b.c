@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 20:39:44 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/28 00:44:14 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:19:13 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ void	rrr(int *stack_a, int *stack_b, int len_a, int len_b)
 	rrb(stack_b, len_b, 0);
 	ft_printf("rrr\n");
 }
-
