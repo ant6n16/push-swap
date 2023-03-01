@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/28 16:15:52 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/01 02:00:39 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,12 @@ int	main(int argc, char **argv)
 		ft_game_basic(stack_a, stack_b, argc);
 	else
 		ft_game(stack_a, stack_b, bits, argc);
+	plot_both_stacks(stack_a, stack_b, (argc - 1));
+	// print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
 	return (free(stack_a), free(stack_b), 0);
 }
 
 /* 
 	TO DO:
-	0.- REVISAR LA ENTRADA CUANDO ES TIPO "1 3 2 4 5" Y CON EL CHECKER
-	1.- METER STACKS Y TAMAÑOS EN UN STRUCT PARA TENER MENOS PARAMETROS EN FUNCIONES
-	2.- OPTIMIZAR USANDO EL RESTO DE INSTRUCCIONES
-*/
-
-/*
-	Para representar el stack en decimal y binario:
-	//plot_both_stacks(stack_a, stack_b, (argc - 1));
-	//print_stacks_by_bits(stack_a, stack_b, argc - 1, bits);
+	METER STACKS Y TAMAÑOS EN UN STRUCT PARA TENER MENOS PARAMETROS EN FUNCIONES
 */
