@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/03 21:19:34 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/04 20:29:26 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 	stack_b = value_to_index(stack_a, (argc - 1), 2147483648, -2147483649);
 	if (!stack_b)
 		return (free(stack_a), 0);
+		ft_printf("%d\n", 5/2);
 	ft_printf("ORIGINAL: \n");
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
 	bits = num_bits(len_stack(stack_a, argc - 1) - 1);
@@ -38,7 +39,7 @@ int	main(int argc, char **argv)
 	else
 		ft_game(stack_a, stack_b, bits, argc);
 	plot_both_stacks(stack_a, stack_b, (argc - 1));
-	// print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+	//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
 	return (free(stack_a), free(stack_b), 0);
 }
 

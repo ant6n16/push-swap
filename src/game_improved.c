@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_improved.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 21:30:45 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/03 21:23:41 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/04 20:43:07 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,59 +36,80 @@ void	ft_game(int *stack_a, int *stack_b, int bits, int argc)
 			return ;
 		//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
 		//plot_both_stacks(stack_a, stack_b, (argc - 1));
-		work_in_a(stack_a, stack_b, i_bit, argc);
+		work_in_a(stack_a, stack_b, i_bit, argc, bits);
 		//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
 		//plot_both_stacks(stack_a, stack_b, (argc - 1));
 		return_to_a(stack_a, stack_b, i_bit, argc, bits);
 	}
 }
 
-/* Cuando mire el bit, si el siguiente bit tampoco implica paso a B vamos a intentar
-optimizar esto. Creo que tendríamos que controlar de alguna forma cuales numeros ya
-se han comprobado para hacer RA o RRA  */
-
-/* Más fácil, contar en A cuantos hay con 0 en el bit, es decir, cuantos hay que mover
-a B. Ir comprobando en cada iteracion si ya se han movido todos. En ese caso parar 
-y no seguir con los PA */
-
-int	count_moves_to_b(int *stack_a, int len, int in_bit)
+int	find_way(int *stack, int len, int in_bit)
 {
 	int	index;
-	int	cont;
+	int	index2;
 
 	index = -1;
-	cont = 0;
 	while (++index < len)
 	{
-		if ((stack_a[index] >> in_bit & 1) == 0)
-			cont++;
+		if ((stack[index] >> in_bit & 1) == 0)
+			break ;
 	}
-	return (cont);
+	index2 = len;
+	while(--index2 >= 0)
+	{
+		if ((stack[index2] >> in_bit & 1) == 0)
+			break ;
+	}
+	ft_printf("index1: %d\n", index);
+	ft_printf("index2: %d\n", len - 1 - index2);
+	if (index > (len - 1 - index2))
+		return (-1);
+	else
+		return (1);
 }
 
-void	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc)
+void	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc, int bits)
 {
 	int	index;
 	int	size_orig;
-	int	moves;
+	int	way;
 
 	index = -1;
+	(void) bits;
 	size_orig = len_stack(stack_a, (argc - 1));
-	moves = count_moves_to_b(stack_a, size_orig, in_bit);
-	while (++index < size_orig && moves != 0)
+	while (++index < size_orig)
 	{
+		if (game_completed(stack_a, len_stack(stack_a, (argc - 1)), 0) == 1)
+			return ;
 		if ((stack_a[0] >> in_bit & 1) == 0)
 		{
 			pb(stack_a, stack_b, argc, 1);
-			ft_printf("\n");
-			plot_both_stacks(stack_a, stack_b, (argc - 1));
-			moves--;
+			//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+			//plot_both_stacks(stack_a, stack_b, (argc - 1));
 		}
 		else
 		{
-			ra(stack_a, len_stack(stack_a, (argc - 1)), 1);
-			ft_printf("\n");
-			plot_both_stacks(stack_a, stack_b, (argc - 1));
+			way = find_way(stack_a, len_stack(stack_a, (argc - 1)), in_bit);
+			if (way == 1)
+				ra(stack_a, len_stack(stack_a, (argc - 1)), 1);
+			else if (way == -1)
+				rra(stack_a, len_stack(stack_a, (argc - 1)), 1);
+			ft_printf("%d\n", way);
+			// ft_printf("\n");
+			// print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+			//plot_both_stacks(stack_a, stack_b, (argc - 1));
+			// if ((stack_a[size_orig - 1] >> in_bit & 1) == 0)
+			// {	
+			// 	rra(stack_a, len_stack(stack_a, (argc - 1)), 1);
+			// 	ft_printf("\n");
+			// 	plot_both_stacks(stack_a, stack_b, (argc - 1));
+			// }
+			// else
+			// {
+			// 	ra(stack_a, len_stack(stack_a, (argc - 1)), 1);
+			// 	ft_printf("\n");
+			// 	plot_both_stacks(stack_a, stack_b, (argc - 1));
+			// }
 		}
 	}
 }
@@ -102,24 +123,31 @@ void	return_to_a(int *stack_a, int *stack_b, int in_bit, int argc, int bits)
 	size_orig = len_stack(stack_b, (argc - 1));
 	while (++index < size_orig)
 	{
-		/* VAMOS A BUSCAR DONDE ESTAN LOS 1 DEL BIT SIGUIENTE EN EL STACK B.
-		SI LOS UNOS ESTÁN MAS CERCA HACIENDO RA O RRA. PASAMOS LOS UNOS AL OTRO STACK */
+		if (game_completed(stack_a, len_stack(stack_a, (argc - 1)), 0) == 1)
+			return ;
 		if (in_bit < (bits - 1))
 		{	
 			if (((stack_b[0] >> (in_bit + 1) & 1) == 0))
 			{
 				rb(stack_b, len_stack(stack_b, (argc - 1)), 1);
-				ft_printf("\n");
-				plot_both_stacks(stack_a, stack_b, (argc - 1));
+				// ft_printf("\n");
+				// print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+				//plot_both_stacks(stack_a, stack_b, (argc - 1));
 			}
 			else
 			{
 				pa(stack_a, stack_b, argc);
-				ft_printf("\n");
-				plot_both_stacks(stack_a, stack_b, (argc - 1));
+				// ft_printf("\n");
+				// print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+				//plot_both_stacks(stack_a, stack_b, (argc - 1));
 			}
 		}
 		else
+		{
 			pa(stack_a, stack_b, argc);
+			// ft_printf("\n");
+			// print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+			//plot_both_stacks(stack_a, stack_b, (argc - 1));
+		}
 	}
 }
