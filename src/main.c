@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/01 02:00:39 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/03 21:19:34 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(int argc, char **argv)
 	stack_b = value_to_index(stack_a, (argc - 1), 2147483648, -2147483649);
 	if (!stack_b)
 		return (free(stack_a), 0);
+	ft_printf("ORIGINAL: \n");
+	plot_both_stacks(stack_a, stack_b, (argc - 1));
 	bits = num_bits(len_stack(stack_a, argc - 1) - 1);
 	if (len_stack(stack_a, argc - 1) <= 5)
 		ft_game_basic(stack_a, stack_b, argc);

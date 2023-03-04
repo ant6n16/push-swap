@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 21:30:45 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/01 02:14:11 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/03 21:23:41 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,62 @@ void	ft_game(int *stack_a, int *stack_b, int bits, int argc)
 	{
 		if (game_completed(stack_a, len_stack(stack_a, (argc - 1)), 0) == 1)
 			return ;
-		print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
-		plot_both_stacks(stack_a, stack_b, (argc - 1));
+		//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+		//plot_both_stacks(stack_a, stack_b, (argc - 1));
 		work_in_a(stack_a, stack_b, i_bit, argc);
-		print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
-		plot_both_stacks(stack_a, stack_b, (argc - 1));
+		//print_stacks_by_bits(stack_a, stack_b, (argc - 1), bits);
+		//plot_both_stacks(stack_a, stack_b, (argc - 1));
 		return_to_a(stack_a, stack_b, i_bit, argc, bits);
 	}
+}
+
+/* Cuando mire el bit, si el siguiente bit tampoco implica paso a B vamos a intentar
+optimizar esto. Creo que tendríamos que controlar de alguna forma cuales numeros ya
+se han comprobado para hacer RA o RRA  */
+
+/* Más fácil, contar en A cuantos hay con 0 en el bit, es decir, cuantos hay que mover
+a B. Ir comprobando en cada iteracion si ya se han movido todos. En ese caso parar 
+y no seguir con los PA */
+
+int	count_moves_to_b(int *stack_a, int len, int in_bit)
+{
+	int	index;
+	int	cont;
+
+	index = -1;
+	cont = 0;
+	while (++index < len)
+	{
+		if ((stack_a[index] >> in_bit & 1) == 0)
+			cont++;
+	}
+	return (cont);
 }
 
 void	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc)
 {
 	int	index;
 	int	size_orig;
+	int	moves;
 
 	index = -1;
 	size_orig = len_stack(stack_a, (argc - 1));
-	while (++index < size_orig)
+	moves = count_moves_to_b(stack_a, size_orig, in_bit);
+	while (++index < size_orig && moves != 0)
 	{
 		if ((stack_a[0] >> in_bit & 1) == 0)
+		{
 			pb(stack_a, stack_b, argc, 1);
+			ft_printf("\n");
+			plot_both_stacks(stack_a, stack_b, (argc - 1));
+			moves--;
+		}
 		else
+		{
 			ra(stack_a, len_stack(stack_a, (argc - 1)), 1);
+			ft_printf("\n");
+			plot_both_stacks(stack_a, stack_b, (argc - 1));
+		}
 	}
 }
 
@@ -73,9 +107,17 @@ void	return_to_a(int *stack_a, int *stack_b, int in_bit, int argc, int bits)
 		if (in_bit < (bits - 1))
 		{	
 			if (((stack_b[0] >> (in_bit + 1) & 1) == 0))
+			{
 				rb(stack_b, len_stack(stack_b, (argc - 1)), 1);
+				ft_printf("\n");
+				plot_both_stacks(stack_a, stack_b, (argc - 1));
+			}
 			else
+			{
 				pa(stack_a, stack_b, argc);
+				ft_printf("\n");
+				plot_both_stacks(stack_a, stack_b, (argc - 1));
+			}
 		}
 		else
 			pa(stack_a, stack_b, argc);
