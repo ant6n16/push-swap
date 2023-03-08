@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 01:27:22 by antdelga          #+#    #+#             */
-/*   Updated: 2023/02/28 16:20:19 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:39:41 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,9 @@ int	len_stack(int *stack, int limit)
 	while (stack[index] != -1 && index < limit)
 		index++;
 	return (index);
+}
+
+void	ft_leaks(void)
+{
+	system("leaks -q push_swap");
 }
