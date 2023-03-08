@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/08 21:13:57 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/08 22:59:35 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ int		game_completed(int *stack, int len, int offset);
 void	ft_game(int *stack_a, int *stack_b, int bits, int argc);
 void	work_in_a(int *stack_a, int *stack_b, int in_bit, int argc);
 void	return_to_a(int *stack_a, int *stack_b, int argc, int *bits_info);
-int	stack_sorted(int *stack, int len);
+int		stack_sorted(int *stack, int len);
 
 #endif
