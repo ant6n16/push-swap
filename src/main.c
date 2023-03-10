@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/08 19:39:57 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:36:43 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	// ft_printf("%s\n", argv[1]);
 	stack_a = (int *) ft_calloc(sizeof(int), (argc - 1));
 	if (!stack_a)
 		return (0);

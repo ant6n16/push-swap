@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_and_stacks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:03:53 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/08 19:20:25 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:40:12 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
